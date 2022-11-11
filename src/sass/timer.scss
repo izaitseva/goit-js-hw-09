@@ -11,7 +11,6 @@ body {
 a {
     text-decoration: none;
     color: transparent;
-    margin-right: 30px;
 
     &:hover,
     &:focus {
@@ -38,7 +37,7 @@ button {
     text-align: center;
     text-decoration: none;
     transition: color 100ms;
-    margin-left: 30px;
+    width: 20%;
 
     &:hover {
         background-color: $main-color;
@@ -79,11 +78,12 @@ input {
     padding: 1em;
     text-transform: uppercase;
     color: #000000;
+    text-align: center;
 }
 
 
 .value {
     display: block;
     font-size: 30px;
-    color: $main-color;
+    color: $main-color; 
 }

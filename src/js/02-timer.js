@@ -1,6 +1,7 @@
 
 import flnpmatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
 let intervalId;
 
@@ -11,17 +12,15 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < Date.now()) {
-      window.alert("Please choose a date in the future");
       buttonStart.disabled = true;
+      Notiflix.Notify.failure('Please choose a date in the future.');
     } else {
       buttonStart.disabled = false;
     }
   },
 };
 
-
 const calendar = flnpmatpickr('#datetime-picker', options);
-
 
 const timer = {
   start() {
@@ -31,29 +30,26 @@ const timer = {
       const currentTime = Date.now();
       const deltaTime = startTime - currentTime;
       const time = convertMs(deltaTime);
-      
+
       if (deltaTime <= 0) {
         clearInterval(intervalId);
       } else {
-        timerUpdate(time);
+        this.update(time);
       }
 
       console.log(deltaTime);
     }, 1000);
+  },
+  update(object) {
+    dataDays.innerHTML = addLeadingZero(object.days);
+    dataHours.innerHTML = addLeadingZero(object.hours);
+    dataMinutes.innerHTML = addLeadingZero(object.minutes);
+    dataSeconds.innerHTML = addLeadingZero(object.seconds);
   }
-}
-
-function timerUpdate(object) {
-
-  dataDays.innerHTML = addLeadingZero(object.days);
-  dataHours.innerHTML = addLeadingZero(object.hours);
-  dataMinutes.innerHTML = addLeadingZero(object.minutes);
-  dataSeconds.innerHTML = addLeadingZero(object.seconds);
 }
 
 let getEl = selector => document.querySelector(selector);
 
-let timerInput = getEl("#datetime-picker");
 let buttonStart = getEl("[data-start]");
 let dataDays = getEl("[data-days]");
 let dataHours = getEl("[data-hours]");
