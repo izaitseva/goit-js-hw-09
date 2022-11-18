@@ -1,2 +1,0 @@
-!function(){var e=document.querySelector(".form");document.querySelector("№submit").addEventListener("submit",(function(){Number(e.delay.value),Number(e.step.value),Number(e.amount.value)})),(void Math.random()).then((function(e){var o=e.position,n=e.delay;console.log("✅ Fulfilled promise ".concat(o," in ").concat(n,"ms"))})).catch((function(e){var o=e.position,n=e.delay;console.log("❌ Rejected promise ".concat(o," in ").concat(n,"ms"))}))}();
-//# sourceMappingURL=03-promises.bbcf5351.js.map
