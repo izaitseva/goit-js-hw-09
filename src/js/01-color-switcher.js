@@ -10,9 +10,9 @@ stopBtn.addEventListener('click', onStopClick);
 
 function onStartClick(event) {
     timerId = setInterval(() => {
+        startBtn.disabled = true;
         document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
-    startBtn.disabled = true;
 }
 
 function onStopClick(event) {
